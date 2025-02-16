@@ -34,3 +34,28 @@ const calculateServiceFee = (amount, serviceType) => {
 
 console.log(calculateServiceFee(200, "Premium")); 
 console.log(calculateServiceFee(500, "Standard")); 
+
+//Task 4
+
+function calculateRentalCost(days, carType, insurance = false) {
+    let dailyRate = 0;
+
+    if (carType === "Economy") {
+        dailyRate = 40;
+    } else if (carType === "Standard") {
+        dailyRate = 60;
+    } else if (carType === "Luxury") {
+        dailyRate = 100;
+    }
+
+    let totalCost = days * dailyRate;
+
+    if (insurance) {
+        totalCost += days * 20; //Adding insurance cost per day
+    }
+
+    return `Total Rental Cost: $${totalCost}`;
+}
+
+console.log(calculateRentalCost(3, "Economy", true));
+console.log(calculateRentalCost(5, "Luxury", false));
